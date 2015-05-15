@@ -2793,52 +2793,64 @@
             "properties": {
                 "oid": {
                     "type": "string",
-                    "description": "公司标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "公司标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "5552bf158934e4f778637806"
                 },
                 "_id": {
                     "type": "string",
-                    "description": "设备标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "设备标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "550bc600e4b0424deefed576"
                 },
                 "name": {
                     "type": "string",
-                    "description": "设备名称，必填"
+                    "description": "设备名称，必填",
+                    "example": "yourDeviceName"
                 },
                 "model": {
                     "type": "string",
-                    "description": "机型。注：更新时忽略请求中的该项参数。必填"
+                    "description": "机型。注：更新时忽略请求中的该项参数。必填",
+                    "example": "IP8XX_WCDMA"
                 },
                 "mobileNumber": {
                     "type": "integer",
-                    "description": "SIM卡号码。"
+                    "description": "SIM卡号码。",
+                    "example": 13312341234
                 },
                 "timezone": {
                     "type": "integer",
-                    "description": "设备使用时所在的时区 默认8"
+                    "description": "设备使用时所在的时区 默认8",
+                    "example": 8
                 },
                 "serialNumber": {
                     "type": "string",
-                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填"
+                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填",
+                    "example": "IP8002015041234"
                 },
                 "siteName": {
                     "type": "string",
                     "description": "所属车辆名称 (自动创建时为空选定车辆时指定)",
-                    "default": ""
+                    "default": "",
+                    "example": "yourDeviceName_site"
                 },
                 "siteId": {
                     "type": "string",
                     "description": "所属车辆标识（自动创建时为null选定车辆时指定）",
-                    "default": null
+                    "default": null,
+                    "example": "5552bf158934e4f778637806"
                 },
                 "contact": {
                     "properties": {
                         "name": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "name"
                         },
                         "phone": {
-                            "type": "string"
+                            "type": "string",
+                            "example": 13312341234
                         },
                         "email": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "youremail@xx.com"
                         }
                     },
                     "type": "object",
@@ -2846,7 +2858,8 @@
                 },
                 "modelId": {
                     "type": "string",
-                    "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填"
+                    "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填",
+                    "example": "5551bd038934e4f7786377e5"
                 },
                 "priIp": {
                     "type": "string",
@@ -2888,7 +2901,8 @@
                 },
                 "address": {
                     "type": "string",
-                    "description": "安装地址"
+                    "description": "安装地址",
+                    "example": "四川成都xx区xx街xx号"
                 },
                 "businessState": {
                     "type": "integer",
@@ -2897,15 +2911,18 @@
                 },
                 "owner": {
                     "type": "string",
-                    "description": "拥有者标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "拥有者标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "54f665846d7eb54435001eed"
                 },
                 "createTime": {
                     "type": "string",
-                    "description": "创建时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。"
+                    "description": "创建时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。",
+                    "example": 1431672000
                 },
                 "updateTime": {
                     "type": "string",
-                    "description": "更新时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。"
+                    "description": "更新时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。",
+                    "example": 1431674353
                 }
             }
         },
@@ -3031,11 +3048,13 @@
             "properties": {
                 "oid": {
                     "type": "string",
-                    "description": "公司标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "公司标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "5552bf158934e4f778637806"
                 },
                 "_id": {
                     "type": "string",
-                    "description": "机型标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "机型标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "555593b28934e4f778637813"
                 },
                 "autoNavi": {
                     "type": "integer",
@@ -3044,11 +3063,13 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "车辆名称 必填"
+                    "description": "车辆名称 必填",
+                    "example": "yourSiteName"
                 },
                 "address": {
                     "type": "string",
-                    "description": "安装地址"
+                    "description": "安装地址",
+                    "example": "四川成都xx区xx街xx号"
                 },
                 "customerId": {
                     "type": "string",
@@ -3077,13 +3098,16 @@
                     "description": "联系人信息",
                     "properties": {
                         "name": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "name"
                         },
                         "phone": {
-                            "type": "string"
+                            "type": "string",
+                            "example": 13312341234
                         },
                         "email": {
-                            "type": "string"
+                            "type": "string",
+                            "example": "youremail@xx.com"
                         }
                     }
                 },
@@ -3109,7 +3133,8 @@
                 },
                 "descriptions": {
                     "type": "string",
-                    "description": "描述信息。"
+                    "description": "描述信息。",
+                    "example": "description"
                 },
                 "pics": {
                     "type": "string",
@@ -3121,15 +3146,18 @@
                 },
                 "owner": {
                     "type": "string",
-                    "description": "拥有者标识。注：创建/更新时忽略请求中的该项参数"
+                    "description": "拥有者标识。注：创建/更新时忽略请求中的该项参数",
+                    "example": "54f665846d7eb54435001eed"
                 },
                 "createTime": {
                     "type": "string",
-                    "description": "创建时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。"
+                    "description": "创建时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。",
+                    "example": 1431672000
                 },
                 "updateTime": {
                     "type": "string",
-                    "description": "更新时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。"
+                    "description": "更新时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。",
+                    "example": 1431674353
                 }
             }
         },
@@ -3308,7 +3336,8 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
@@ -3316,7 +3345,8 @@
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3331,15 +3361,18 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -4247,19 +4280,23 @@
             "properties": {
                 "_id": {
                     "type": "string",
-                    "description": "机型标识。"
+                    "description": "机型标识。",
+                    "example": "54f66588e4b0f38a6eaadcf4"
                 },
                 "name": {
                     "type": "string",
-                    "description": "机型名称"
+                    "description": "机型名称",
+                    "example": "IP8XX_WCDMA"
                 },
                 "createTime": {
                     "type": "integer",
-                    "description": "创建时间, UnixTime"
+                    "description": "创建时间, UnixTime",
+                    "example": 1431670000
                 },
                 "updateTime": {
                     "type": "integer",
-                    "description": "更新时间, UnixTime"
+                    "description": "更新时间, UnixTime",
+                    "example": 1431671817
                 }
             }
         },
