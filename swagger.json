@@ -1184,7 +1184,7 @@
                         "description": "设备信息.",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Devices"
+                            "$ref": "#/definitions/DevicesAM"
                         }
                     }
                 ],
@@ -1438,7 +1438,7 @@
                         "description": "设备信息.",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Devices"
+                            "$ref": "#/definitions/DevicesAM"
                         }
                     }
                 ],
@@ -1712,7 +1712,7 @@
                         "description": "车辆信息",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Sites"
+                            "$ref": "#/definitions/SitesAM"
                         }
                     }
                 ],
@@ -1924,7 +1924,7 @@
                         "description": "车辆信息",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Sites"
+                            "$ref": "#/definitions/SitesAM"
                         }
                     }
                 ],
@@ -2909,6 +2909,120 @@
                 }
             }
         },
+        "DevicesAM": {
+            "required": [
+                "name",
+                "model",
+                "serialNumber",
+                "modelId",
+                "location"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "设备名称，必填"
+                },
+                "model": {
+                    "type": "string",
+                    "description": "机型。注：更新时忽略请求中的该项参数。必填"
+                },
+                "mobileNumber": {
+                    "type": "integer",
+                    "description": "SIM卡号码。"
+                },
+                "timezone": {
+                    "type": "integer",
+                    "description": "设备使用时所在的时区 默认8",
+                    "default": 8
+                },
+                "serialNumber": {
+                    "type": "string",
+                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填"
+                },
+                "siteName": {
+                    "type": "string",
+                    "description": "所属车辆名称 (自动创建时为空选定车辆时指定)",
+                    "default": ""
+                },
+                "siteId": {
+                    "type": "string",
+                    "description": "所属车辆标识（自动创建时为null选定车辆时指定）",
+                    "default": null
+                },
+                "contact": {
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    "type": "object",
+                    "description": "联系人信息注：创建/更新时忽略请求中的该项参数"
+                },
+                "modelId": {
+                    "type": "string",
+                    "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填"
+                },
+                "priIp": {
+                    "type": "string",
+                    "description": "设备私网ip (创建设备时不指定)",
+                    "default": ""
+                },
+                "pubIp": {
+                    "type": "string",
+                    "description": "设备公网ip(设备的动态属性，由AP上报获得)注：创建/更新时忽略请求中的该项参数。",
+                    "default": ""
+                },
+                "priPort": {
+                    "type": "integer",
+                    "description": "设备私网port (创建设备时不指定)"
+                },
+                "pubPort": {
+                    "type": "integer",
+                    "description": "设备公网port 注：创建/更新时忽略请求中的该项参数."
+                },
+                "online": {
+                    "type": "integer",
+                    "description": "在线状态   0离线  1在线 (设备的动态属性，由AP上报获得)注：创建/更新时忽略请求中的该项参数。"
+                },
+                "syncState": {
+                    "type": "integer",
+                    "description": "同步状态 参见设备动态信息数据结构定义"
+                },
+                "location": {
+                    "type": "object",
+                    "description": "位置信息",
+                    "properties": {
+                        "longitude": {
+                            "type": "number",
+                            "description": "经度"
+                        },
+                        "latitude": {
+                            "type": "number",
+                            "description": "纬度"
+                        }
+                    }
+                },
+                "address": {
+                    "type": "string",
+                    "description": "安装地址",
+                    "default": ""
+                },
+                "businessState": {
+                    "type": "integer",
+                    "description": "业务状态 0：建设 1：投运 2：故障 3：检修 必填",
+                    "default": 0
+                }
+            }
+        },
         "Sites": {
             "required": [
                 "name",
@@ -3016,6 +3130,66 @@
                 "updateTime": {
                     "type": "string",
                     "description": "更新时间。（标准UTC 时间）注：创建/更新时忽略请求中的该项参数。"
+                }
+            }
+        },
+        "SitesAM": {
+            "required": [
+                "name",
+                "location"
+            ],
+            "properties": {
+                "autoNavi": {
+                    "type": "integer",
+                    "description": "1为自动定位，0是取消自动定位 必填",
+                    "default": 1
+                },
+                "name": {
+                    "type": "string",
+                    "description": "车辆名称 必填"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "安装地址",
+                    "default": ""
+                },
+                "location": {
+                    "type": "object",
+                    "description": "位置信息 必填",
+                    "properties": {
+                        "longitude": {
+                            "type": "number"
+                        },
+                        "latitude": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "contact": {
+                    "type": "object",
+                    "description": "联系人信息",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                },
+                "businessState": {
+                    "type": "integer",
+                    "description": "业务状态 0：建设 1：投运 2：故障 3：检修"
+                },
+                "online": {
+                    "type": "integer",
+                    "description": "联网状态 0:离线 1在线（由设备主动上报）参见设备动态信息数据结构定义"
                 }
             }
         },
