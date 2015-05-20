@@ -211,7 +211,7 @@
                         "required": false,
                         "type": "string",
                         "format": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -468,7 +468,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -731,7 +731,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -984,7 +984,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -1046,7 +1046,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -1234,7 +1234,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -1534,7 +1534,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -1603,7 +1603,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -1762,7 +1762,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -2019,7 +2019,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 0
+                        "default": 1
                     },
                     {
                         "name": "limit",
@@ -3230,7 +3230,8 @@
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
@@ -3343,7 +3344,8 @@
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
@@ -3369,7 +3371,7 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "example": 0
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
@@ -3400,15 +3402,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3528,15 +3535,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3551,40 +3563,48 @@
             "properties": {
                 "_id": {
                     "type": "string",
-                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "oid": {
                     "type": "string",
-                    "description": "机构标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "机构标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "54f665836d7eb54435001ee7"
                 },
                 "name": {
                     "type": "string",
-                    "description": "发布点名称"
+                    "description": "发布点名称",
+                    "example": "html"
                 },
                 "priority": {
                     "type": "integer",
                     "description": "发布优先级别：1-高，2-中，3-低",
-                    "default": 2
+                    "default": 2,
+                    "example": 1
                 },
                 "syncCycleTime": {
                     "type": "integer",
                     "description": "同步周期，默认900000，单位:毫秒，15分钟。",
-                    "default": 900000
+                    "default": 900000,
+                    "example": 900000
                 },
                 "status": {
                     "type": "integer",
                     "description": "发布点状态：1-可用，0-不可用。",
-                    "default": 1
+                    "default": 1,
+                    "example": 1
                 },
                 "syncTimeInterval": {
                     "type": "string",
                     "description": "同步时间段，默认：between hour 0 and 23 on weekday 0,1,2,3,4,5,6。",
-                    "default": "between hour 0 and 23 on weekday 0,1,2,3,4,5,6"
+                    "default": "between hour 0 and 23 on weekday 0,1,2,3,4,5,6",
+                    "example": "between hour 0 and 23 on weekday 0,1,2,3,4,5,6"
                 },
                 "devicePath": {
                     "type": "string",
                     "description": "设备端存储目录默认为html。",
-                    "default": "html"
+                    "default": "html",
+                    "example": "html"
                 }
             }
         },
@@ -3592,15 +3612,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3615,65 +3640,79 @@
             "properties": {
                 "_id": {
                     "type": "string",
-                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "55498ba8893493da68cd1866"
                 },
                 "oid": {
                     "type": "string",
-                    "description": "机构标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "机构标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "54f665836d7eb54435001ee7"
                 },
                 "version": {
                     "type": "string",
-                    "description": "内容版本号，并不作为唯一标识"
+                    "description": "内容版本号，并不作为唯一标识",
+                    "example": 1.1
                 },
                 "publishPointId": {
                     "type": "integer",
-                    "description": "发布点标识"
+                    "description": "发布点标识",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "deviceList": {
                     "type": "array",
                     "description": "所发布的设备列表。",
+                    "example": "55472d5560b25d8b3763b3de, 55472e9b60b25d8b3763b3e0",
                     "items": {
                         "type": "string"
                     }
                 },
                 "groupName": {
                     "type": "string",
-                    "description": "发布组名。"
+                    "description": "发布组名。",
+                    "example": null
                 },
                 "uri": {
                     "type": "string",
+                    "example": "/var/lib/tomcat7/content_sync/tmp/1430883096/",
                     "description": "当前发布所在目录。"
                 },
                 "fileSize": {
                     "type": "number",
-                    "description": "发布的文件大小。"
+                    "description": "发布的文件大小。",
+                    "example": 88176
                 },
                 "createTime": {
                     "type": "number",
-                    "description": "发布时间"
+                    "description": "发布时间",
+                    "example": 1430883240879
                 },
                 "operationId": {
                     "type": "string",
-                    "description": "操作人用户id"
+                    "description": "操作人用户id",
+                    "example": "54f665846d7eb54435001eed"
                 },
                 "operationName": {
                     "type": "string",
-                    "description": "操作人用户名。"
+                    "description": "操作人用户名。",
+                    "example": "email@xx.com"
                 },
                 "backRecord": {
                     "type": "array",
                     "description": "版本回退记录。",
+                    "example": "{backTime:1430892538294, backDesc:234234}, {backTime:1430892659434, backDesc:234234}",
                     "items": {
                         "type": "string"
                     }
                 },
                 "backTime": {
                     "type": "number",
-                    "description": "回退时间。"
+                    "description": "回退时间。",
+                    "example": 1430892538294
                 },
                 "backDesc": {
                     "type": "string",
-                    "description": "回退描述。"
+                    "description": "回退描述。",
+                    "example": "backDesc-example"
                 }
             }
         },
@@ -3692,23 +3731,28 @@
             "properties": {
                 "_id": {
                     "type": "string",
-                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。"
+                    "description": "发布点标识。注：创建/更新时忽略请求中的该项参数。",
+                    "example": "555c5990893498ee4621e0e4"
                 },
                 "deviceId": {
                     "type": "string",
-                    "description": "设备唯一标识。"
+                    "description": "设备唯一标识。",
+                    "example": "55407711e4b08a74ea3443c7"
                 },
                 "deviceName": {
                     "type": "string",
-                    "description": "设备名称。"
+                    "description": "设备名称。",
+                    "example": "deviceName"
                 },
                 "publishPointId": {
                     "type": "string",
-                    "description": "发布点标识。"
+                    "description": "发布点标识。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "publishPointName": {
                     "type": "string",
-                    "description": "发布点名称"
+                    "description": "发布点名称",
+                    "example": "html"
                 },
                 "groupName": {
                     "type": "string",
@@ -3716,35 +3760,43 @@
                 },
                 "currentVersion": {
                     "type": "number",
-                    "description": "当前版本。"
+                    "description": "当前版本。",
+                    "example": "V1.1"
                 },
                 "syncVersion": {
                     "type": "number",
-                    "description": "同步版本"
+                    "description": "同步版本",
+                    "example": "V1.2"
                 },
                 "fileSize": {
                     "type": "string",
-                    "description": "发布文件大小。"
+                    "description": "发布文件大小。",
+                    "example": 1895987
                 },
                 "createTime": {
                     "type": "string",
-                    "description": "发布时间。"
+                    "description": "发布时间。",
+                    "example": 1432115600412
                 },
                 "syncStartTime": {
                     "type": "string",
-                    "description": "同步开始时间"
+                    "description": "同步开始时间",
+                    "example": 1432115600549
                 },
                 "state": {
                     "type": "integer",
-                    "description": "当前同步状态：0-等待同步，1-同步中，2-已完成。"
+                    "description": "当前同步状态：0-等待同步，1-同步中，2-已完成。",
+                    "example": 2
                 },
                 "publishUserName": {
                     "type": "string",
-                    "description": "当次发布人用户名。"
+                    "description": "当次发布人用户名。",
+                    "example": "email@xx.com"
                 },
                 "contentPublishedId": {
                     "type": "string",
-                    "description": "当次发布标识"
+                    "description": "当次发布标识",
+                    "example": "555c5990893498ee4621e0e3"
                 }
             }
         },
@@ -3752,15 +3804,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3780,13 +3837,16 @@
             "properties": {
                 "publishPointId": {
                     "type": "string",
-                    "description": "发布点标识。"
+                    "description": "发布点标识。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "tagId": {
                     "type": "string",
-                    "description": "分组标识。"
+                    "description": "分组标识。",
+                    "example": "550A99836D7EB54E510000A9"
                 },
                 "siteList": {
+                    "example": "55407711e4b08a74ea3443c7",
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
                     "items": {
@@ -3796,10 +3856,12 @@
                 },
                 "uri": {
                     "type": "string",
-                    "description": "将要发布的文件路径。"
+                    "description": "将要发布的文件路径。",
+                    "example": "/var/lib/tomcat7/content_sync/tmp/1431488222/"
                 },
                 "tags": {
                     "type": "array",
+                    "example": "550A99836D7EB54E510000A9",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
                     "items": {
                         "type": "string"
@@ -3811,15 +3873,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -3862,15 +3929,20 @@
             "properties": {
                 "total": {
                     "type": "integer",
-                    "description": "结果总数。"
+                    "description": "结果总数。",
+                    "example": 1
                 },
                 "cursor": {
                     "type": "integer",
-                    "description": "游标。表示从结果的第几条开始。"
+                    "description": "游标。表示从结果的第几条开始。",
+                    "default": 1,
+                    "example": 1
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "返回的结果数目。"
+                    "description": "返回的结果数目。",
+                    "default": 30,
+                    "example": 30
                 },
                 "result": {
                     "type": "array",
@@ -4191,31 +4263,38 @@
             "properties": {
                 "_id": {
                     "type": "string",
-                    "description": "发布点标识。"
+                    "description": "发布点标识。",
+                    "example": "555c5990893498ee4621e0e4"
                 },
                 "name": {
                     "type": "string",
-                    "description": "同步点名称，约定格式：发布点id_设备id_机构id。"
+                    "description": "同步点名称，约定格式：发布点id_设备id_机构id。",
+                    "example": "html"
                 },
                 "deviceId": {
                     "type": "string",
-                    "description": "设备标识。"
+                    "description": "设备标识。",
+                    "example": "55407711e4b08a74ea3443c7"
                 },
                 "publishPointId": {
                     "type": "string",
-                    "description": "发布点标识。"
+                    "description": "发布点标识。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "version": {
                     "type": "string",
-                    "description": "内容版本号，并不作为唯一标识。"
+                    "description": "内容版本号，并不作为唯一标识。",
+                    "example": "V1.1"
                 },
                 "contentPublishedId": {
                     "type": "string",
-                    "description": "当次发布记录标识"
+                    "description": "当次发布记录标识",
+                    "example": "555c5990893498ee4621e0e3"
                 },
                 "state": {
                     "type": "integer",
-                    "description": "当前同步状态：0-等待同步，1-同步中，2-已完成"
+                    "description": "当前同步状态：0-等待同步，1-同步中，2-已完成",
+                    "example": 2
                 },
                 "syncModule": {
                     "description": "同步点模块，对rsync同步模块的对象封装。",
