@@ -4129,11 +4129,13 @@
                 },
                 "user": {
                     "type": "string",
-                    "description": "远程服务器登陆用户名。"
+                    "description": "远程服务器登陆用户名。",
+                    "default": ""
                 },
                 "pass": {
                     "type": "string",
-                    "description": "远程服务器登陆密码。"
+                    "description": "远程服务器登陆密码。",
+                    "default": ""
                 },
                 "publishPointId": {
                     "type": "string",
@@ -4151,6 +4153,7 @@
                 "siteList": {
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
+                    "default": "",
                     "items": {
                         "type": "string",
                         "description": "车辆ID"
@@ -4234,27 +4237,33 @@
                 },
                 "port": {
                     "type": "string",
-                    "description": "远程服务器端口。"
+                    "description": "远程服务器端口。",
+                    "default": ""
                 },
                 "oid": {
                     "type": "string",
-                    "description": "机构ID。"
+                    "description": "机构ID。",
+                    "default": ""
                 },
                 "user": {
                     "type": "string",
-                    "description": "远程服务器登陆用户名。"
+                    "description": "远程服务器登陆用户名。",
+                    "default": ""
                 },
                 "pass": {
                     "type": "string",
-                    "description": "远程服务器登陆密码。"
+                    "description": "远程服务器登陆密码。",
+                    "default": ""
                 },
                 "XUId": {
                     "type": "string",
-                    "description": "操作用户机构ID。"
+                    "description": "操作用户机构ID。",
+                    "default": ""
                 },
                 "XUsername": {
                     "type": "string",
-                    "description": "操作用户邮箱。"
+                    "description": "操作用户邮箱。",
+                    "default": ""
                 },
                 "publishPointId": {
                     "type": "string",
@@ -4272,6 +4281,7 @@
                 "siteList": {
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
+                    "default": "",
                     "items": {
                         "type": "string",
                         "description": "车辆ID"
