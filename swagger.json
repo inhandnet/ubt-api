@@ -2972,11 +2972,13 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "设备名称，必填"
+                    "description": "设备名称，必填",
+                    "example": "name"
                 },
                 "model": {
                     "type": "string",
-                    "description": "机型。注：更新时忽略请求中的该项参数。必填"
+                    "description": "机型。注：更新时忽略请求中的该项参数。必填",
+                    "example": "IP8XX_WCDMA"
                 },
                 "mobileNumber": {
                     "type": "integer",
@@ -2989,7 +2991,8 @@
                 },
                 "serialNumber": {
                     "type": "string",
-                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填"
+                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填",
+                    "example": "IP8002015021234"
                 },
                 "siteName": {
                     "type": "string",
@@ -3021,7 +3024,8 @@
                 },
                 "modelId": {
                     "type": "string",
-                    "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填"
+                    "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填",
+                    "example": "5551bd038934e4f7786377e5"
                 },
                 "priIp": {
                     "type": "string",
@@ -3209,7 +3213,8 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "车辆名称 必填"
+                    "description": "车辆名称 必填",
+                    "example": "siteName"
                 },
                 "address": {
                     "type": "string",
@@ -3362,7 +3367,8 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "分组名称。"
+                    "description": "分组名称。",
+                    "example": "tagName"
                 },
                 "shared": {
                     "type": "boolean",
@@ -3537,13 +3543,17 @@
             }
         },
         "ResourceIds": {
+            "required": [
+                "resourceIds"
+            ],
             "properties": {
                 "resourceIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "资源对应ID。"
+                    "description": "资源对应ID。",
+                    "example": "55472d5560b25d8b3763b3de"
                 }
             }
         },
@@ -3933,14 +3943,20 @@
             }
         },
         "BackPublishinfo": {
+            "required": [
+                "contentPublishedId",
+                "backDesc"
+            ],
             "properties": {
                 "contentPublishedId": {
                     "type": "string",
-                    "description": "回到发布版本的ID。"
+                    "description": "回到发布版本的ID。",
+                    "example": "55498ba8893493da68cd1866"
                 },
                 "backDesc": {
                     "type": "string",
-                    "description": "版本回退描述。"
+                    "description": "版本回退描述。",
+                    "example": "回退描述"
                 }
             }
         },
@@ -4093,19 +4109,23 @@
                 "synchro_cycle": {
                     "type": "string",
                     "description": "同步周期。默认15分钟",
-                    "default": 900000
+                    "default": 900000,
+                    "example": 900000
                 },
                 "startTime": {
                     "type": "string",
-                    "description": "同步开始时间。"
+                    "description": "同步开始时间。",
+                    "example": 1432224000000
                 },
                 "endTime": {
                     "type": "string",
-                    "description": "同步结束时间。"
+                    "description": "同步结束时间。",
+                    "example": 1432742400000
                 },
                 "server": {
                     "type": "string",
-                    "description": "远程服务器地址。"
+                    "description": "远程服务器地址。",
+                    "example": "x.x.x.x"
                 },
                 "user": {
                     "type": "string",
@@ -4117,11 +4137,13 @@
                 },
                 "publishPointId": {
                     "type": "string",
-                    "description": "发布点ID，比如：Inportal、html、conf，需要发布者，选定一个发布点。"
+                    "description": "发布点ID，比如：Inportal、html、conf，需要发布者，选定一个发布点。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "tags": {
                     "type": "array",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
+                    "example": "550A99836D7EB54E510000A9",
                     "items": {
                         "type": "string"
                     }
@@ -4136,7 +4158,8 @@
                 },
                 "tarPath": {
                     "type": "string",
-                    "description": "文件同步路径。"
+                    "description": "文件同步路径。",
+                    "example": "/doc/login_page/"
                 }
             }
         },
@@ -4178,23 +4201,36 @@
             }
         },
         "Updatejob": {
+            "required": [
+                "server",
+                "startTime",
+                "endTime",
+                "tags",
+                "tarPath",
+                "publishPointId",
+                "synchro_cycle"
+            ],
             "properties": {
                 "synchro_cycle": {
                     "type": "string",
                     "description": "同步周期。默认15分钟",
-                    "default": 900000
+                    "default": 900000,
+                    "example": 900000
                 },
                 "startTime": {
                     "type": "string",
-                    "description": "同步开始时间。"
+                    "description": "同步开始时间。",
+                    "example": 1432224000000
                 },
                 "endTime": {
                     "type": "string",
-                    "description": "同步结束时间。"
+                    "description": "同步结束时间。",
+                    "example": 1432742400000
                 },
                 "server": {
                     "type": "string",
-                    "description": "远程服务器地址。"
+                    "description": "远程服务器地址。",
+                    "example": "x.x.x.x"
                 },
                 "port": {
                     "type": "string",
@@ -4222,11 +4258,13 @@
                 },
                 "publishPointId": {
                     "type": "string",
-                    "description": "发布点ID，比如：Inportal、html、conf，需要发布者，选定一个发布点。"
+                    "description": "发布点ID，比如：Inportal、html、conf，需要发布者，选定一个发布点。",
+                    "example": "54f66589e4b022ebea0d5e26"
                 },
                 "tags": {
                     "type": "array",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
+                    "example": "550A99836D7EB54E510000A9",
                     "items": {
                         "type": "string"
                     }
@@ -4241,7 +4279,8 @@
                 },
                 "tarPath": {
                     "type": "string",
-                    "description": "文件同步路径。"
+                    "description": "文件同步路径。",
+                    "example": "/doc/login_page/"
                 }
             }
         },
@@ -4274,6 +4313,7 @@
                 "deviceIds": {
                     "type": "array",
                     "description": "设备ID可以传多个",
+                    "example": "55472d5560b25d8b3763b3de",
                     "items": {
                         "type": "string"
                     }
@@ -4281,6 +4321,7 @@
                 "publishPointIds": {
                     "type": "array",
                     "description": "发布点ID的数组",
+                    "example": "54f66589e4b022ebea0d5e26",
                     "items": {
                         "type": "string"
                     }
@@ -4288,6 +4329,7 @@
                 "publishIds": {
                     "type": "array",
                     "description": "发布记录id的数组",
+                    "example": "555c5990893498ee4621e0e4",
                     "items": {
                         "type": "string"
                     }
