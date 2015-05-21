@@ -2297,6 +2297,13 @@
                         "type": "string"
                     },
                     {
+                        "name": "oid",
+                        "in": "query",
+                        "description": "机构标识",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -2309,7 +2316,14 @@
                         "name": "publishPointId",
                         "in": "query",
                         "description": "内容发布点ID",
-                        "required": true,
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "publishId",
+                        "in": "query",
+                        "description": "发布记录标识",
+                        "required": false,
                         "type": "string"
                     },
                     {
@@ -2325,6 +2339,27 @@
                         "description": "设备名称，模糊查询",
                         "required": false,
                         "type": "string"
+                    },
+                    {
+                        "name": "cursor",
+                        "in": "query",
+                        "description": "游标。表示从结果的第几条开始，如果省略默认为1，即从第一条开始。",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "每次请求返回的条目数量。",
+                        "required": false,
+                        "type": "integer",
+                        "default": 30,
+                        "enum": [
+                            30,
+                            50,
+                            100
+                        ]
                     },
                     {
                         "name": "version",
