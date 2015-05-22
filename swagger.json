@@ -782,7 +782,28 @@
                         "description": "资源类型。1机构2用户3角色4客户端5设备6机型7标签8合同9实时数据10配置11机器14车辆15固件16客户17文档19任务20开发者应用21使用者应用22系统文件，表示查询指定资源类型的分组列表。",
                         "required": true,
                         "type": "integer",
-                        "default": 5
+                        "default": 5,
+                        "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10,
+                            11,
+                            14,
+                            15,
+                            16,
+                            17,
+                            19,
+                            20,
+                            21,
+                            22
+                        ]
                     },
                     {
                         "name": "resource_id",
@@ -969,7 +990,28 @@
                         "description": "资源类型。1机构2用户3角色4客户端5设备6机型7标签8合同9实时数据10配置11机器14车辆15固件16客户17文档19任务20开发者应用21使用者应用22系统文件，表示查询指定资源类型的分组列表。",
                         "required": true,
                         "type": "integer",
-                        "default": 5
+                        "default": 5,
+                        "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10,
+                            11,
+                            14,
+                            15,
+                            16,
+                            17,
+                            19,
+                            20,
+                            21,
+                            22
+                        ]
                     },
                     {
                         "name": "ID",
@@ -1184,7 +1226,7 @@
                         "description": "设备信息.",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DevicesAM"
+                            "$ref": "#/definitions/DevicesA"
                         }
                     }
                 ],
@@ -1438,7 +1480,7 @@
                         "description": "设备信息.",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DevicesAM"
+                            "$ref": "#/definitions/DevicesM"
                         }
                     }
                 ],
@@ -2797,17 +2839,17 @@
                 },
                 "questionId": {
                     "type": "integer",
-                    "description": "安全提问类型，默认为1 必填",
+                    "description": "安全提问类型，默认为1",
                     "default": 1
                 },
                 "question": {
                     "type": "string",
-                    "description": "安全提问。必填可以为空值",
+                    "description": "安全提问。可以为空值",
                     "default": ""
                 },
                 "answer": {
                     "type": "string",
-                    "description": "安全提问的答案。必填可以为空值",
+                    "description": "安全提问的答案。可以为空值",
                     "default": ""
                 },
                 "password": {
@@ -2961,7 +3003,7 @@
                 }
             }
         },
-        "DevicesAM": {
+        "DevicesA": {
             "required": [
                 "name",
                 "model",
@@ -3027,27 +3069,91 @@
                     "description": "机型标识注：更新时忽略请求中的该项参数。创建设备时必填",
                     "example": "5551bd038934e4f7786377e5"
                 },
+                "syncState": {
+                    "type": "integer",
+                    "description": "同步状态 参见设备动态信息数据结构定义"
+                },
+                "location": {
+                    "type": "object",
+                    "description": "位置信息",
+                    "properties": {
+                        "longitude": {
+                            "type": "number",
+                            "description": "经度"
+                        },
+                        "latitude": {
+                            "type": "number",
+                            "description": "纬度"
+                        }
+                    }
+                },
+                "address": {
+                    "type": "string",
+                    "description": "安装地址",
+                    "default": ""
+                },
+                "businessState": {
+                    "type": "integer",
+                    "description": "业务状态 0：建设 1：投运 2：故障 3：检修 必填",
+                    "default": 0
+                }
+            }
+        },
+        "DevicesM": {
+            "required": [
+                "name",
+                "location"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "设备名称，必填",
+                    "example": "name"
+                },
+                "mobileNumber": {
+                    "type": "integer",
+                    "description": "SIM卡号码。"
+                },
+                "timezone": {
+                    "type": "integer",
+                    "description": "设备使用时所在的时区 默认8",
+                    "default": 8
+                },
+                "siteName": {
+                    "type": "string",
+                    "description": "所属车辆名称 (自动创建时为空选定车辆时指定)",
+                    "default": ""
+                },
+                "siteId": {
+                    "type": "string",
+                    "description": "所属车辆标识（自动创建时为null选定车辆时指定）",
+                    "default": null
+                },
+                "contact": {
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    "type": "object"
+                },
                 "priIp": {
                     "type": "string",
                     "description": "设备私网ip (创建设备时不指定)",
                     "default": ""
                 },
-                "pubIp": {
-                    "type": "string",
-                    "description": "设备公网ip(设备的动态属性，由AP上报获得)注：创建/更新时忽略请求中的该项参数。",
-                    "default": ""
-                },
                 "priPort": {
                     "type": "integer",
                     "description": "设备私网port (创建设备时不指定)"
-                },
-                "pubPort": {
-                    "type": "integer",
-                    "description": "设备公网port 注：创建/更新时忽略请求中的该项参数."
-                },
-                "online": {
-                    "type": "integer",
-                    "description": "在线状态   0离线  1在线 (设备的动态属性，由AP上报获得)注：创建/更新时忽略请求中的该项参数。"
                 },
                 "syncState": {
                     "type": "integer",
@@ -3203,7 +3309,8 @@
         "SitesAM": {
             "required": [
                 "name",
-                "location"
+                "location",
+                "autoNavi"
             ],
             "properties": {
                 "autoNavi": {
@@ -3307,11 +3414,13 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "公司名称。必填"
+                    "description": "公司名称。必填",
+                    "example": "companyName"
                 },
                 "email": {
                     "type": "string",
-                    "description": "公司联系邮箱。必填（必须为真实邮箱 创建成功以后会将密码发到该邮箱里）"
+                    "description": "公司联系邮箱。必填（必须为真实邮箱 创建成功以后会将密码发到该邮箱里）",
+                    "example": "email@xx.com"
                 },
                 "phone": {
                     "type": "string",
@@ -3335,7 +3444,8 @@
                 },
                 "username": {
                     "type": "string",
-                    "description": "登录用户名。系统唯一。必填"
+                    "description": "登录用户名。系统唯一。必填",
+                    "example": "username"
                 },
                 "cellPhone": {
                     "type": "string",
@@ -3344,17 +3454,17 @@
                 },
                 "questionId": {
                     "type": "integer",
-                    "description": "安全提问类型，默认为1 必填",
+                    "description": "安全提问类型，默认为1",
                     "default": 1
                 },
                 "question": {
                     "type": "string",
-                    "description": "安全提问。必填可以为空值",
+                    "description": "安全提问。可以为空值",
                     "default": ""
                 },
                 "answer": {
                     "type": "string",
-                    "description": "安全提问的答案。必填可以为空值",
+                    "description": "安全提问的答案。可以为空值",
                     "default": ""
                 }
             }
@@ -3706,9 +3816,9 @@
                 "deviceList": {
                     "type": "array",
                     "description": "所发布的设备列表。",
-                    "example": "55472d5560b25d8b3763b3de, 55472e9b60b25d8b3763b3e0",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "55472d5560b25d8b3763b3de, 55472e9b60b25d8b3763b3e0"
                     }
                 },
                 "groupName": {
@@ -3744,20 +3854,9 @@
                 "backRecord": {
                     "type": "array",
                     "description": "版本回退记录。",
-                    "example": "{backTime:1430892538294, backDesc:234234}, {backTime:1430892659434, backDesc:234234}",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/definitions/backRecord"
                     }
-                },
-                "backTime": {
-                    "type": "number",
-                    "description": "回退时间。",
-                    "example": 1430892538294
-                },
-                "backDesc": {
-                    "type": "string",
-                    "description": "回退描述。",
-                    "example": "backDesc-example"
                 }
             }
         },
@@ -3891,11 +3990,11 @@
                     "example": "550A99836D7EB54E510000A9"
                 },
                 "siteList": {
-                    "example": "55407711e4b08a74ea3443c7",
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
                     "items": {
                         "type": "string",
+                        "example": "55407711e4b08a74ea3443c7",
                         "description": "车辆ID"
                     }
                 },
@@ -3906,10 +4005,10 @@
                 },
                 "tags": {
                     "type": "array",
-                    "example": "550A99836D7EB54E510000A9",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "defaultTagId"
                     }
                 }
             }
@@ -4145,17 +4244,17 @@
                 "tags": {
                     "type": "array",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
-                    "example": "550A99836D7EB54E510000A9",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "550A99836D7EB54E510000A9"
                     }
                 },
                 "siteList": {
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
-                    "default": "",
                     "items": {
                         "type": "string",
+                        "default": "",
                         "description": "车辆ID"
                     }
                 },
@@ -4273,18 +4372,18 @@
                 "tags": {
                     "type": "array",
                     "description": "分组标识Id数组，若存在未分组的情况，Id请传defaultTagId。",
-                    "example": "550A99836D7EB54E510000A9",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "550A99836D7EB54E510000A9"
                     }
                 },
                 "siteList": {
                     "type": "array",
                     "description": "现场列表 注：tagId和siteList，两者不能都为空，默认取siteList，如果siteList为空，则通过tagId获取siteList。",
-                    "default": "",
                     "items": {
                         "type": "string",
-                        "description": "车辆ID"
+                        "description": "车辆ID",
+                        "default": ""
                     }
                 },
                 "tarPath": {
@@ -4331,17 +4430,17 @@
                 "publishPointIds": {
                     "type": "array",
                     "description": "发布点ID的数组",
-                    "example": "54f66589e4b022ebea0d5e26",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "54f66589e4b022ebea0d5e26"
                     }
                 },
                 "publishIds": {
                     "type": "array",
                     "description": "发布记录id的数组",
-                    "example": "555c5990893498ee4621e0e4",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "555c5990893498ee4621e0e4"
                     }
                 }
             }
@@ -4478,6 +4577,20 @@
                 },
                 "error_code": {
                     "type": "integer"
+                }
+            }
+        },
+        "backRecord": {
+            "properties": {
+                "backTime": {
+                    "type": "number",
+                    "description": "回退时间。",
+                    "example": 1430892538294
+                },
+                "backDesc": {
+                    "type": "string",
+                    "description": "回退描述。",
+                    "example": "backDesc-example"
                 }
             }
         }
