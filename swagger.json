@@ -4323,9 +4323,9 @@
                 "deviceIds": {
                     "type": "array",
                     "description": "设备ID可以传多个",
-                    "example": "55472d5560b25d8b3763b3de",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "55472d5560b25d8b3763b3de"
                     }
                 },
                 "publishPointIds": {
