@@ -211,7 +211,7 @@
                         "required": false,
                         "type": "string",
                         "format": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -468,7 +468,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -731,7 +731,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -984,7 +984,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -1046,7 +1046,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -1234,7 +1234,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -1534,7 +1534,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -1603,7 +1603,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -1762,7 +1762,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -2019,7 +2019,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -2346,7 +2346,7 @@
                         "description": "游标。表示从结果的第几条开始，如果省略默认为1，即从第一条开始。",
                         "required": false,
                         "type": "integer",
-                        "default": 1
+                        "default": 0
                     },
                     {
                         "name": "limit",
@@ -3271,7 +3271,7 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "example": 1
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3386,7 +3386,7 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "example": 1
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3412,7 +3412,7 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "example": 1
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3449,8 +3449,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3586,8 +3586,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3663,8 +3663,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3855,8 +3855,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3924,8 +3924,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
@@ -3986,8 +3986,8 @@
                 "cursor": {
                     "type": "integer",
                     "description": "游标。表示从结果的第几条开始。",
-                    "default": 1,
-                    "example": 1
+                    "default": 0,
+                    "example": 0
                 },
                 "limit": {
                     "type": "integer",
