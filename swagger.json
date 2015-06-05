@@ -443,7 +443,7 @@
                 "summary": "更改指定用户的密码.",
                 "description": "更改指定用户的密码.",
                 "tags": [
-                    "Orgnization"
+                    "Organization"
                 ],
                 "parameters": [
                     {
@@ -459,6 +459,15 @@
                         "description": "公司标识。",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "name": "Organization",
+                        "in": "body",
+                        "description": "新旧密码。",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Password"
+                        }
                     }
                 ],
                 "responses": {
@@ -4630,6 +4639,24 @@
                     "type": "string",
                     "description": "修改密码结果",
                     "example": "OK"
+                }
+            }
+        },
+        "Password": {
+            "required": [
+                "oldPassword",
+                "newPassword"
+            ],
+            "properties": {
+                "oldPassword": {
+                    "type": "string",
+                    "description": "旧密码",
+                    "example": "E10ADC3949BA59ABBE56E057F20F883E"
+                },
+                "newPassword": {
+                    "type": "string",
+                    "description": "新密码",
+                    "example": "FCEA920F7412B5DA7BE0CF42B8C93759"
                 }
             }
         }
