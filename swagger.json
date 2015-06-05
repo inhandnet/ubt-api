@@ -438,6 +438,45 @@
                 }
             }
         },
+        "/api2/users/{ID}/password": {
+            "put": {
+                "summary": "更改指定用户的密码.",
+                "description": "更改指定用户的密码.",
+                "tags": [
+                    "Orgnization"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        "description": "公司标识。",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Organization",
+                        "schema": {
+                            "$ref": "#/definitions/PasswordR"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/api/tags": {
             "get": {
                 "summary": "获取分组列表",
@@ -3146,15 +3185,6 @@
                     },
                     "type": "object"
                 },
-                "priIp": {
-                    "type": "string",
-                    "description": "设备私网ip (创建设备时不指定)",
-                    "default": ""
-                },
-                "priPort": {
-                    "type": "integer",
-                    "description": "设备私网port (创建设备时不指定)"
-                },
                 "syncState": {
                     "type": "integer",
                     "description": "同步状态 参见设备动态信息数据结构定义"
@@ -4591,6 +4621,15 @@
                     "type": "string",
                     "description": "回退描述。",
                     "example": "backDesc-example"
+                }
+            }
+        },
+        "PasswordR": {
+            "properties": {
+                "result": {
+                    "type": "string",
+                    "description": "修改密码结果",
+                    "example": "OK"
                 }
             }
         }
