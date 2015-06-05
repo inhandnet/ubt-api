@@ -486,6 +486,54 @@
                 }
             }
         },
+        "/api2/users/this/password": {
+            "put": {
+                "summary": "更改当前用户的密码.",
+                "description": "更改当前用户的密码.",
+                "tags": [
+                    "Organization"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "oid",
+                        "in": "query",
+                        "description": "公司标识。",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Organization",
+                        "in": "body",
+                        "description": "新旧密码。",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Password"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Organization",
+                        "schema": {
+                            "$ref": "#/definitions/PasswordR"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/api/tags": {
             "get": {
                 "summary": "获取分组列表",
