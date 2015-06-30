@@ -3016,11 +3016,13 @@
                     "properties": {
                         "longitude": {
                             "type": "number",
-                            "description": "经度"
+                            "description": "经度",
+                            "default": 116.407013
                         },
                         "latitude": {
                             "type": "number",
-                            "description": "纬度"
+                            "description": "纬度",
+                            "default": 39.926588
                         }
                     }
                 },
@@ -3127,11 +3129,13 @@
                     "properties": {
                         "longitude": {
                             "type": "number",
-                            "description": "经度"
+                            "description": "经度",
+                            "default": 116.407013
                         },
                         "latitude": {
                             "type": "number",
-                            "description": "纬度"
+                            "description": "纬度",
+                            "default": 39.926588
                         }
                     }
                 },
@@ -3204,11 +3208,13 @@
                     "properties": {
                         "longitude": {
                             "type": "number",
-                            "description": "经度"
+                            "description": "经度",
+                            "default": 116.407013
                         },
                         "latitude": {
                             "type": "number",
-                            "description": "纬度"
+                            "description": "纬度",
+                            "default": 39.926588
                         }
                     }
                 },
@@ -3270,10 +3276,14 @@
                     "description": "位置信息 必填",
                     "properties": {
                         "longitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "经度",
+                            "default": 116.407013
                         },
                         "latitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "纬度",
+                            "default": 39.926588
                         }
                     }
                 },
@@ -3372,10 +3382,14 @@
                     "description": "位置信息 必填",
                     "properties": {
                         "longitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "经度",
+                            "default": 116.407013
                         },
                         "latitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "纬度",
+                            "default": 39.926588
                         }
                     }
                 },
@@ -4324,11 +4338,13 @@
                                 },
                                 "longitude": {
                                     "type": "string",
-                                    "description": "经度。"
+                                    "description": "经度。",
+                                    "default": 116.407013
                                 },
                                 "latitude": {
                                     "type": "string",
-                                    "description": "纬度。"
+                                    "description": "纬度。",
+                                    "default": 39.926588
                                 }
                             }
                         },
