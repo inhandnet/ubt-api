@@ -47,14 +47,14 @@
                     {
                         "name": "start_time",
                         "in": "query",
-                        "description": "按创建时间查询时的开始时间，单位秒，标准UTC时间。",
+                        "description": "按创建时间查询时的开始时间，单位毫秒，标准UTC时间。",
                         "required": true,
                         "type": "integer"
                     },
                     {
                         "name": "end_time",
                         "in": "query",
-                        "description": "按创建时间查询时的结束时间，单位秒，标准UTC时间。",
+                        "description": "按创建时间查询时的结束时间，单位毫秒，标准UTC时间。",
                         "required": true,
                         "type": "integer"
                     },
@@ -107,14 +107,14 @@
                     {
                         "name": "start_time",
                         "in": "query",
-                        "description": "按创建时间查询时的开始时间，单位秒，标准UTC时间。",
+                        "description": "按创建时间查询时的开始时间，单位毫秒，标准UTC时间。",
                         "required": true,
                         "type": "integer"
                     },
                     {
                         "name": "end_time",
                         "in": "query",
-                        "description": "按创建时间查询时的结束时间，单位秒，标准UTC时间。",
+                        "description": "按创建时间查询时的结束时间，单位毫秒，标准UTC时间。",
                         "required": true,
                         "type": "integer"
                     },
