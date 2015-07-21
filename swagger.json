@@ -21,7 +21,150 @@
     "produces": [
         "application/json"
     ],
+    "securityDefinitions": {
+        "access_token": {
+            "type": "apiKey",
+            "name": "access_token",
+            "in": "query"
+        }
+    },
+    "security": ["access_token"],
     "paths": {
+        "/api/wifi/stat": {
+            "get": {
+                "summary": "Wi-Fi统计数据查询",
+                "description": "Wi-Fi统计数据查询",
+                "tags": ["Statistic"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "description": "统计类型，以','分隔开的数组，71: 每日新终端数， 51：每日总终端数， 307：停留时间超1小时的终端数",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "description": "按创建时间查询时的开始时间，单位秒，标准UTC时间。",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "end_time",
+                        "in": "query",
+                        "description": "按创建时间查询时的结束时间，单位秒，标准UTC时间。",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "object_id",
+                        "in": "query",
+                        "description": "查询目的车辆的id，为空则查询当前机构所有车辆的统计总合。",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "result",
+                        "schema": {
+                            "$ref": "#/definitions/WiFiStatResult"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pvuv/resource/stat": {
+            "get": {
+                "summary": "获取资源PVUV数据",
+                "produces": ["application/json"],
+                "tags": ["Statistic"],
+                "parameters": [
+                    {
+                        "name": "tid",
+                        "type": "string",
+                        "in": "query",
+                        "description": "资源类型id",
+                        "required": true,
+                        "example": "home"
+                    },
+                    {
+                        "name": "rid",
+                        "type": "string",
+                        "in": "query",
+                        "description": "资源id",
+                        "required": true,
+                        "example": "home"
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "description": "按创建时间查询时的开始时间，单位秒，标准UTC时间。",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "end_time",
+                        "in": "query",
+                        "description": "按创建时间查询时的结束时间，单位秒，标准UTC时间。",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "site_id",
+                        "in": "query",
+                        "description": "查询目的车辆的id，为空则查询当前机构所有车辆的统计总合。",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "pv": {
+                                                "type": "integer",
+                                                "example": 12
+                                            },
+                                            "uv": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "date": {
+                                                "type": "integer",
+                                                "example": 1320040030,
+                                                "description": "日期时间戳"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/oauth2/access_token": {
             "post": {
                 "summary": "用户登录",
@@ -150,13 +293,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。注：对应角色---超级管理员。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "oid",
                         "in": "query",
                         "description": "公司标识。",
@@ -188,13 +324,6 @@
                     "Organization"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。注：对应角色---超级管理员。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -307,13 +436,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。注：对应角色---超级管理员。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "公司标识。",
@@ -343,13 +465,6 @@
                     "Organization"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。注：对应角色---超级管理员。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "ID",
                         "in": "path",
@@ -399,13 +514,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。注：对应角色---超级管理员。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "公司标识。",
@@ -447,13 +555,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得 注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "oid",
                         "in": "query",
                         "description": "公司标识。",
@@ -494,13 +595,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -562,13 +656,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -612,13 +699,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "分组标识。",
@@ -648,13 +728,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -704,13 +777,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -751,13 +817,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "resource_type",
                         "in": "query",
@@ -817,13 +876,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "resource_type",
                         "in": "query",
@@ -891,13 +943,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "resource_id",
                         "in": "query",
                         "description": "资源标识。",
@@ -936,13 +981,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "tag_id",
                         "in": "query",
@@ -984,13 +1022,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "resourceIds",
                         "in": "body",
                         "description": "资源对应ID。",
@@ -1025,13 +1056,6 @@
                     "Tags"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "resource_type",
                         "in": "query",
@@ -1114,13 +1138,6 @@
                     "Devices"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1245,13 +1262,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -1302,13 +1312,6 @@
                     "Devices"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1444,13 +1447,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "设备标识。",
@@ -1492,13 +1488,6 @@
                     "Devices"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1555,13 +1544,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -1602,13 +1584,6 @@
                     "Model"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1671,13 +1646,6 @@
                     "Sites"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1781,13 +1749,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -1830,13 +1791,6 @@
                     "Sites"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -1937,13 +1891,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "车辆标识。",
@@ -1985,13 +1932,6 @@
                     "Sites"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "ID",
                         "in": "path",
@@ -2041,13 +1981,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "ID",
                         "in": "path",
                         "description": "车辆标识。",
@@ -2088,13 +2021,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "status",
                         "in": "query",
@@ -2172,13 +2098,6 @@
                         "type": "file"
                     },
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -2226,13 +2145,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -2282,13 +2194,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "verbose",
                         "in": "query",
                         "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
@@ -2329,13 +2234,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "verbose",
                         "in": "query",
@@ -2379,13 +2277,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "oid",
                         "in": "query",
@@ -2484,13 +2375,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "publishPointName",
                         "in": "query",
                         "description": "发布点名称。",
@@ -2531,13 +2415,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "publishPointName",
                         "in": "query",
@@ -2587,13 +2464,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "publishPointName",
                         "in": "query",
                         "description": "发布点名称。",
@@ -2641,13 +2511,6 @@
                     "Publish"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "type",
                         "in": "query",
@@ -2697,13 +2560,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "name": "device_id",
                         "in": "query",
                         "description": "设备资源ID",
@@ -2742,13 +2598,6 @@
                     "Traffic"
                 ],
                 "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "OAuth2授权后获得。注：通过HTTP认证头携带时省略。",
-                        "required": true,
-                        "type": "string"
-                    },
                     {
                         "name": "month",
                         "in": "query",
@@ -2801,6 +2650,41 @@
                     "description": "过期时间(秒)",
                     "default": 3600
                 }
+            }
+        },
+        "WiFiStatResult": {
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/WiFiStat"
+                    }
+                }
+            }
+        },
+        "WiFiStat": {
+            "properties": {
+                "type": {
+                    "type": "integer",
+                    "description": "统计类型",
+                    "example": 51
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "example": [1304123432, 2],
+                        "description": "二维数组，第一个为时间，第二个为值"
+                    }
+                }
+            }
+        },
+        "WiFiStatValue": {
+            "properties": {
+
             }
         },
         "Tags": {
