@@ -165,6 +165,198 @@
                 }
             }
         },
+        "/api/pvuv/resources": {
+            "get": {
+                "summary": "获取指定栏目下的所有页面及概要信息",
+                "tags": ["Statistic"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "tid",
+                        "type": "string",
+                        "in": "query",
+                        "description": "资源类型id",
+                        "required": true,
+                        "example": "home"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "排序字段，'total.pv'或者'total.uv'分别表示按总pv数、总uv数排序",
+                        "type": "string"
+                    },
+                    {
+                        "name": "direction",
+                        "in": "query",
+                        "description": "排序方式，1表示正序，0表示倒序",
+                        "enum": [1, 0],
+                        "type": "integer"
+                    },
+                    {
+                        "name": "site_id",
+                        "in": "query",
+                        "description": "查询目的车辆的id，为空则查询当前机构所有车辆的统计总合。",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "result",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "rId": {
+                                                "type": "string",
+                                                "example": "0",
+                                                "description": "页面Id，为'0'表示栏目本身"
+                                            },
+                                            "tId": {
+                                                "type": "string",
+                                                "example": "main",
+                                                "description": "栏目Id"
+                                            },
+                                            "updateTime": {
+                                                "type": "integer",
+                                                "example": 1436924464981,
+                                                "description": "更新时间戳"
+                                            },
+                                            "last": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "pv": {
+                                                        "type": "integer",
+                                                        "example": 12
+                                                    },
+                                                    "uv": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "date": {
+                                                        "type": "integer",
+                                                        "example": 1320040030,
+                                                        "description": "日期时间戳"
+                                                    }
+                                                },
+                                                "description": "最近日期的PVUV统计"
+                                            },
+                                            "total": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "pv": {
+                                                        "type": "integer",
+                                                        "example": 12
+                                                    },
+                                                    "uv": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "description": "总PVUV统计"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pvuv/types": {
+            "get": {
+                "summary": "获取所有栏目及概要信息",
+                "tags": ["Statistic"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "site_id",
+                        "in": "query",
+                        "description": "查询目的车辆的id，为空则查询当前机构所有车辆的统计总合。",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "result",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "tId": {
+                                                "type": "string",
+                                                "example": "main",
+                                                "description": "栏目Id"
+                                            },
+                                            "updateTime": {
+                                                "type": "integer",
+                                                "example": 1436924464981,
+                                                "description": "更新时间戳"
+                                            },
+                                            "last": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "pv": {
+                                                        "type": "integer",
+                                                        "example": 12
+                                                    },
+                                                    "uv": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "date": {
+                                                        "type": "integer",
+                                                        "example": 1320040030,
+                                                        "description": "日期时间戳"
+                                                    }
+                                                },
+                                                "description": "最近日期的PVUV统计"
+                                            },
+                                            "total": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "pv": {
+                                                        "type": "integer",
+                                                        "example": 12
+                                                    },
+                                                    "uv": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "description": "总PVUV统计"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/oauth2/access_token": {
             "post": {
                 "summary": "用户登录",
