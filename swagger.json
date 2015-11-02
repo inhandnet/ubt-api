@@ -2230,7 +2230,7 @@
                     "200": {
                         "description": "Publish",
                         "schema": {
-                            "$ref": "#/definitions/ResultDelorg"
+                            "$ref": "#/definitions/TmpUrl"
                         }
                     },
                     "default": {
@@ -4174,6 +4174,16 @@
                         "$ref": "#/definitions/OrganizationRe"
                     },
                     "description": "返回的公司对象信息"
+                }
+            }
+        },
+         "TmpUrl": {
+            "properties": {
+                "result": {
+                   "type": "string",
+                   "description": "文件服务器临时保存目录。",
+                   "example": "/var/lib/tomcat7/content_sync/tmp/1446427417/"
+                    }
                 }
             }
         },
