@@ -2222,7 +2222,7 @@
                 }, {
                     "name": "suffix",
                     "in": "query",
-                    "description": "文件后缀，默认zip(用于辨别解压方式)",
+                    "description": "文件后缀，默认zip(用于辨别解压方式)，zip文件无需使用该参数",
                     "required": false,
                     "type": "string"
                 }],
