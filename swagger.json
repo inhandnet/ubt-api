@@ -3032,7 +3032,7 @@
                 },
                 "serialNumber": {
                     "type": "string",
-                    "description": "设备序列号。 注:更新时忽略请求中的该项参数 必填",
+                    "description": "设备序列号（例PT3XXYYYYSSSSSS共15位，前两位是字母表示路由器种类和模块型号，3XX 3位表示路由器型号，YYYY四位表示生产日期，SSSSSS六位表示序列号。平台做序列号重复判断时只取当中九位3XXSSSSSS（路由器型号+序列号））。 注:更新时忽略请求中的该项参数 必填",
                     "example": "IP8002015021234"
                 },
                 "siteName": {
