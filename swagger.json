@@ -94,7 +94,11 @@
                     "type": "string",
                     "in": "query",
                     "description": "资源id",
+<<<<<<< HEAD
                     "required": false,
+=======
+                    "required": true,
+>>>>>>> 7e492a773b6ad4845805685ba2a240ab0131a955
                     "example": "home"
                 }, {
                     "name": "start_time",
