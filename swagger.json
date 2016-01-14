@@ -228,6 +228,16 @@
                                                 "type": "integer",
                                                 "example": 1
                                             },
+                                            "rid": {
+                                                "type": "string",
+                                                "description": "资源标识",
+                                                "example": "123"
+                                            },
+                                            "tid": {
+                                                "type": "string",
+                                                "example": "movie",
+                                                "description": "栏目标识"
+                                            },
                                             "date": {
                                                 "type": "integer",
                                                 "example": 1320040030,
