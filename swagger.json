@@ -188,7 +188,7 @@
                     "type": "string",
                     "in": "query",
                     "description": "资源id",
-                    "required": true,
+                    "required": false,
                     "example": "home"
                 }, {
                     "name": "start_time",
