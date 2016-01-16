@@ -30,6 +30,81 @@
     },
     "security": ["access_token"],
     "paths": {
+        "/api/wifi/terminals": {
+            "get": {
+                "summary": "获取终端列表",
+                "description": "获取终端列表，每个终端以mac地址标识",
+                "tags": [
+                    "Wi-Fi"
+                ],
+                "parameters": [{
+                    "name": "cursor",
+                    "in": "query",
+                    "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
+                    "required": false,
+                    "type": "string",
+                    "format": "integer",
+                    "default": 0
+                }, {
+                    "name": "limit",
+                    "in": "query",
+                    "description": "每次请求返回的条目数量。",
+                    "required": false,
+                    "type": "integer",
+                    "default": 10,
+                    "enum": [
+                        10,
+                        30,
+                        50,
+                        100
+                    ]
+                }],
+                "responses": {
+                    "200": {
+                        "description": "mac终端列表",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "mac": {
+                                                "type": "string",
+                                                "description": "点击终端mac地址",
+                                                "example": "ab:cd:ef:12:22:23"
+                                            },
+                                            "createTime": {
+                                                "type": "integer",
+                                                "example": 1320040030000,
+                                                "description": "创建时间"
+                                            },
+                                            "login": {
+                                                "type": "integer",
+                                                "example": 1320040030000,
+                                                "description": "最近登录时间"
+                                            },
+                                            "deviceId": {
+                                                "type": "string",
+                                                "description": "第一次登录所在的设备Id",
+                                                "example": "123444123413231423412"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/api/wifi/stat": {
             "get": {
                 "summary": "Wi-Fi统计数据查询",
@@ -4281,14 +4356,14 @@
                 }
             }
         },
-         "TmpUrl": {
+        "TmpUrl": {
             "properties": {
                 "result": {
-                   "type": "string",
-                   "description": "文件服务器临时保存目录。",
-                   "example": "/var/lib/tomcat7/content_sync/tmp/1446427417/"
-                    }
+                    "type": "string",
+                    "description": "文件服务器临时保存目录。",
+                    "example": "/var/lib/tomcat7/content_sync/tmp/1446427417/"
                 }
+            }
         },
         "ResultDelorg": {
             "properties": {
