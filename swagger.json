@@ -30,10 +30,10 @@
     },
     "security": ["access_token"],
     "paths": {
-        "/api/wifi/terminals": {
+        "/api/wifi/access/terminal": {
             "get": {
-                "summary": "获取终端列表",
-                "description": "获取终端列表，每个终端以mac地址标识",
+                "summary": "获取终端登录记录",
+                "description": "获取终端登录记录",
                 "tags": [
                     "Wi-Fi"
                 ],
@@ -65,6 +65,11 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "total": {
+                                    "type": "integer",
+                                    "description": "列表总条目数",
+                                    "example": 100
+                                },
                                 "result": {
                                     "type": "array",
                                     "items": {
@@ -88,6 +93,113 @@
                                             "deviceId": {
                                                 "type": "string",
                                                 "description": "第一次登录所在的设备Id",
+                                                "example": "123444123413231423412"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/wifi/terminals": {
+            "get": {
+                "summary": "获取终端列表",
+                "description": "获取终端列表，每个终端以mac地址标识",
+                "tags": [
+                    "Wi-Fi"
+                ],
+                "parameters": [{
+                    "name": "start_time",
+                    "in": "query",
+                    "description": "按创建时间查询时的开始时间，单位毫秒，标准UTC时间。",
+                    "required": true,
+                    "type": "integer"
+                }, {
+                    "name": "end_time",
+                    "in": "query",
+                    "description": "按创建时间查询时的结束时间，单位毫秒，标准UTC时间。",
+                    "required": true,
+                    "type": "integer"
+                },{
+                    "name": "cursor",
+                    "in": "query",
+                    "description": "游标。表示从结果的第几条开始，如果省略默认为0，即从第一条开始。",
+                    "required": false,
+                    "type": "string",
+                    "format": "integer",
+                    "default": 0
+                }, {
+                    "name": "limit",
+                    "in": "query",
+                    "description": "每次请求返回的条目数量。",
+                    "required": false,
+                    "type": "integer",
+                    "default": 10,
+                    "enum": [
+                        10,
+                        30,
+                        50,
+                        100
+                    ]
+                }],
+                "responses": {
+                    "200": {
+                        "description": "mac终端列表",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "total": {
+                                    "type": "integer",
+                                    "description": "列表总条目数",
+                                    "example": 100
+                                },
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "mac": {
+                                                "type": "string",
+                                                "description": "终端mac地址",
+                                                "example": "ab:cd:ef:12:22:23"
+                                            },
+                                            "startTime": {
+                                                "type": "integer",
+                                                "example": 1320040030000,
+                                                "description": "登录时间"
+                                            },
+                                            "endTime": {
+                                                "type": "integer",
+                                                "example": 1320040030000,
+                                                "description": "离线时间"
+                                            },
+                                            "time": {
+                                                "type": "integer",
+                                                "example": 123,
+                                                "description": "在线时长"
+                                            },
+                                            "rx": {
+                                                "type": "integer",
+                                                "example": 123,
+                                                "description": "下行流量"
+                                            },
+                                            "tx": {
+                                                "type": "integer",
+                                                "example": 123,
+                                                "description": "上行流量"
+                                            },
+                                            "deviceId": {
+                                                "type": "string",
+                                                "description": "登录所在的设备Id",
                                                 "example": "123444123413231423412"
                                             }
                                         }
