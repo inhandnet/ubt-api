@@ -3111,6 +3111,17 @@
                 }
 			}
 		},
+				
+	"onlinestatR": {
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/onstatR"
+                    }
+                }
+            }
+        },
         "Tags": {
             "properties": {
                 "oid": {
