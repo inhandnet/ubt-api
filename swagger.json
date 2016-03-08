@@ -3100,6 +3100,7 @@
             "properties": {       
                 "resourceIds": {
                     "type": "array",
+                    "description": "多个设备ID",
                     "items": {
                         "$ref": "#/definitions/DeviceID"
                     }
@@ -3112,9 +3113,6 @@
 			}
 		},
 	"DeviceID": {
-            "required": [
-                "Deviceid"       
-            ],
             "properties": {       
                 "Deviceid": {
                     "type": "string",
