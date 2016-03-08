@@ -3101,7 +3101,7 @@
                 "resourceIds": {
                     "type": "string",
                     "description": "设备ID",
-                   "default": 559f834db294043c5a260a6e
+                   "default": null
                 },
                 "verbose": {
                     "type": "integer",
