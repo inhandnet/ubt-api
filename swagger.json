@@ -3092,65 +3092,6 @@
 
             }
         },
-		        "onlinestatR": {
-            "properties": {
-                "result": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/onstatR"
-                    }
-                }
-            }
-        },
-        "onstatR": {
-            "properties": {
-                "deviceId": {
-                    "type": "string",
-                    "description": "设备id",
-                    "example": 559f834db294043c5a260a6e
-                },
-                "maxOnline": {
-                    "type": "string",
-                    "description": "最大在线时长",
-                    "example": 123456
-                },
-		"maxOffline": {
-                    "type": "string",
-                    "description": "最大离线时长",
-                    "example": 123456
-                },
-		"totalOnline": {
-                    "type": "string",
-                    "description": "总计在线时长",
-                    "example": 123456
-                },
-		"totalOffline": {
-                    "type": "string",
-                    "description": "总计离线时长",
-                    "example": 123456
-                },
-		"login": {
-                    "type": "integer",
-                    "description": "上线次数",
-                    "example": 1           
-                },
-				"exception": {
-                    "type": "integer",
-                    "description": "异常掉线次数",
-                    "example": 1           
-                },
-		"onlineRate": {
-                    "type": "string",
-                    "description": "在线率",
-                    "example": 123456           
-                },
-		"firstlogin": {
-                    "type": "string",
-                    "description": "第一次上线时间",
-                    "example": 1436517216           
-                }
-            }
-        },
         "Tags": {
             "properties": {
                 "oid": {
