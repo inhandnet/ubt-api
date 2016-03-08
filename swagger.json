@@ -3160,9 +3160,9 @@
                     "example": 1           
                 },
 				"onlineRate": {
-                    "type": "string",
+                    "type": "number",
                     "description": "在线率",
-                    "example": 123456           
+                    "example":0.81           
                 },
 				"firstlogin": {
                     "type": "string",
