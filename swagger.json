@@ -3099,9 +3099,10 @@
             ],
             "properties": {       
                 "resourceIds": {
-                    "type": "string",
-                    "description": "设备id",
-                    "default": ""
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DeviceID"
+                    }
                 },
                 "verbose": {
                     "type": "integer",
@@ -3109,7 +3110,19 @@
                     "default": 100
                 }
 			}
-		},	
+		},
+	"DeviceID": {
+            "required": [
+                "Deviceid",        
+            ],
+            "properties": {       
+                "Deviceid": {
+                    "type": "string",
+                    "description": "设备id",
+                    "example": 559f834db294043c5a260a6e
+                }
+			}
+		},
         "Tags": {
             "properties": {
                 "oid": {
