@@ -270,6 +270,49 @@
                 }
             }
         },
+          "/api/online_stat/list": {
+            "post": {
+                "summary": "设备在线统计查询",
+                "description": "设备在线统计查询",
+                "tags": ["Statistic"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "start_time",
+                    "in": "query",
+                    "description": "按创建时间查询时的开始时间，单位毫秒，标准UTC时间。",
+                    "required": true,
+                    "type": "integer"
+                }, {
+                    "name": "end_time",
+                    "in": "query",
+                    "description": "按创建时间查询时的结束时间，单位毫秒，标准UTC时间。",
+                    "required": true,
+                    "type": "integer"
+                }, {
+                    "name": "resourceInfo",
+                    "in": "body",
+                    "description": "查询目的设备的id与返回信息详细等级，可填写多个设备id",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/resourceInfo"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "result",
+                        "schema": {
+                            "$ref": "#/definitions/WiFiStatResult"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
         "/api/pvuv/resource/clicks": {
             "get": {
                 "summary": "获取资源PVUV详细数据",
@@ -3047,6 +3090,83 @@
         "WiFiStatValue": {
             "properties": {
 
+            }
+        },
+        "resourceInfo": {
+            "required": [
+                "resourceIds",
+                "verbose"         
+            ],
+            "properties": {       
+                "resourceIds": {
+                    "type": "string",
+                    "description": "设备id",
+                    "default": ""
+                },
+                "verbose": {
+                    "type": "integer",
+                    "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
+                    "default": 100
+                }
+			}
+		},	
+				        "onlinestatR": {
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/onstatR"
+                    }
+                }
+            }
+        },
+        "onstatR": {
+            "properties": {
+                "deviceId": {
+                    "type": "string",
+                    "description": "设备id",
+                    "example": 559f834db294043c5a260a6e
+                },
+                "maxOnline": {
+                    "type": "string",
+                    "description": "最大在线时长",
+                    "example": 559f834db294043c5a260a6e
+                },
+				"maxOffline": {
+                    "type": "string",
+                    "description": "最大离线时长",
+                    "example": 559f834db294043c5a260a6e
+                },
+				"totalOnline": {
+                    "type": "string",
+                    "description": "总计在线时长",
+                    "example": 559f834db294043c5a260a6e
+                },
+				"totalOffline": {
+                    "type": "string",
+                    "description": "总计离线时长",
+                    "example": 559f834db294043c5a260a6e
+                },
+				"login": {
+                    "type": "integer",
+                    "description": "上线次数",
+                    "example": 559f834db294043c5a260a6e           
+                },
+				"exception": {
+                    "type": "integer",
+                    "description": "异常掉线次数",
+                    "example": 559f834db294043c5a260a6e           
+                },
+				"onlineRate": {
+                    "type": "float",
+                    "description": "在线率",
+                    "example": 559f834db294043c5a260a6e           
+                },
+				"firstlogin": {
+                    "type": "string",
+                    "description": "第一次上线时间",
+                    "example": 559f834db294043c5a260a6e           
+                }
             }
         },
         "Tags": {
