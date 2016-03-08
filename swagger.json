@@ -289,7 +289,7 @@
                     "required": true,
                     "type": "integer"
                 }, {
-                    "name": "resourceInfo",
+                    "name": "resourceIn",
                     "in": "body",
                     "description": "查询目的设备的id与返回信息详细等级，可填写多个设备id",
                     "required": true,
@@ -301,7 +301,7 @@
                     "200": {
                         "description": "result",
                         "schema": {
-                            "$ref": "#/definitions/WiFiStatResult"
+                            "$ref": "#/definitions/onlinestatR"
                         }
                     },
                     "default": {
@@ -3110,7 +3110,7 @@
                 }
 			}
 		},	
-				        "onlinestatR": {
+	"onlinestatR": {
             "properties": {
                 "result": {
                     "type": "array",
@@ -3132,37 +3132,37 @@
                     "description": "最大在线时长",
                     "example": 559f834db294043c5a260a6e
                 },
-				"maxOffline": {
+	        "maxOffline": {
                     "type": "string",
                     "description": "最大离线时长",
                     "example": 559f834db294043c5a260a6e
                 },
-				"totalOnline": {
+		"totalOnline": {
                     "type": "string",
                     "description": "总计在线时长",
                     "example": 559f834db294043c5a260a6e
                 },
-				"totalOffline": {
+		"totalOffline": {
                     "type": "string",
                     "description": "总计离线时长",
                     "example": 559f834db294043c5a260a6e
                 },
-				"login": {
+		"login": {
                     "type": "integer",
                     "description": "上线次数",
                     "example": 559f834db294043c5a260a6e           
                 },
-				"exception": {
+		"exception": {
                     "type": "integer",
                     "description": "异常掉线次数",
                     "example": 559f834db294043c5a260a6e           
                 },
-				"onlineRate": {
-                    "type": "float",
+		"onlineRate": {
+                    "type": "string",
                     "description": "在线率",
                     "example": 559f834db294043c5a260a6e           
                 },
-				"firstlogin": {
+		"firstlogin": {
                     "type": "string",
                     "description": "第一次上线时间",
                     "example": 559f834db294043c5a260a6e           
