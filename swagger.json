@@ -3099,25 +3099,14 @@
             ],
             "properties": {       
                 "resourceIds": {
-                    "type": "array",
-                    "description": "多个设备ID",
-                    "items": {
-                        "$ref": "#/definitions/DeviceID"
-                    }
+                    "type": "string",
+                    "description": "设备ID",
+                   "example": 559f834db294043c5a260a6e
                 },
                 "verbose": {
                     "type": "integer",
                     "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
                     "default": 100
-                }
-			}
-		},
-	"DeviceID": {
-            "properties": {       
-                "Deviceid": {
-                    "type": "string",
-                    "description": "设备id",
-                    "example": 559f834db294043c5a260a6e
                 }
 			}
 		},
