@@ -3127,27 +3127,27 @@
                 "deviceId": {
                     "type": "string",
                     "description": "设备id",
-                    "example": 5552606
+                    "example": "559f834db294043c5a260a6e"
                 },
                 "maxOnline": {
-                    "type": "string",
+                    "type": "integer",
                     "description": "最大在线时长",
-                    "example": 123456
+                    "example": 121345
                 },
 				"maxOffline": {
-                    "type": "string",
+                    "type": "integer",
                     "description": "最大离线时长",
-                    "example": 123456
+                    "example": 4534234
                 },
 				"totalOnline": {
-                    "type": "string",
+                    "type": "integer",
                     "description": "总计在线时长",
-                    "example": 123456
+                    "example": 213432
                 },
 				"totalOffline": {
-                    "type": "string",
+                    "type": "integer",
                     "description": "总计离线时长",
-                    "example": 123456
+                    "example": 350839
                 },
 				"login": {
                     "type": "integer",
