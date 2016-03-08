@@ -3092,6 +3092,25 @@
 
             }
         },
+        "resourceInfo": {
+            "required": [
+                "resourceIds",
+                "verbose"         
+            ],
+            "properties": {       
+                "resourceIds": {
+                    "type": "array",
+                    "items": {
+                         "type": "string"
+                    }
+                },
+                "verbose": {
+                    "type": "integer",
+                    "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
+                    "default": 100
+                }
+			}
+		},
         "Tags": {
             "properties": {
                 "oid": {
