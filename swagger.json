@@ -3113,7 +3113,7 @@
 		},
 	"DeviceID": {
             "required": [
-                "Deviceid",        
+                "Deviceid"       
             ],
             "properties": {       
                 "Deviceid": {
