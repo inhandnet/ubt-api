@@ -3127,7 +3127,7 @@
                 "deviceId": {
                     "type": "string",
                     "description": "设备id",
-                    "example": 559f834db294043c5a260a6e
+                    "example": 5552606
                 },
                 "maxOnline": {
                     "type": "string",
