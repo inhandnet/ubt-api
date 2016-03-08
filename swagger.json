@@ -3100,6 +3100,7 @@
             "properties": {       
                 "resourceIds": {
                     "type": "array",
+                    "description": "多个设备id",
                     "items": {
                          "type": "string"
                     }
