@@ -5149,7 +5149,15 @@
 		    "example": "577DB88951F9050008000083"
                 }				
             }
-        },	
+        },
+        "TaskInfoResult": {
+            "properties": {
+                "result": {
+                    "$ref": "#/definitions/TaskInfoReponse"                 
+                    "description": "返回任务相关信息。"
+                }
+            }
+        },
         "Error": {
             "properties": {
                 "request": {
