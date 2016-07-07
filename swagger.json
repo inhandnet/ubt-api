@@ -5000,6 +5000,30 @@
                 }
             }
         },
+        "TaskData": {
+            "properties": {
+                "deviceDesc": {
+                    "type": "string",
+                    "description": "任务描述信息。",
+		    "example": "CMD"
+                },
+                "sensorId": {
+                    "type": "integer",
+                    "description": "网关中sensor程序的ID。",
+		    "example": 0
+                },
+                "deviceType": {
+                    "type": "integer",
+                    "description": "设备类型，网关默认为0。 ",
+		    "example": 0
+                },
+		"deviceContent": {
+                    "type": "string",
+                    "description": "下发任务内容，重启为reboot confirmed。 ",
+		    "example": "reboot confirmed"
+                }
+            }
+        },
         "Error": {
             "properties": {
                 "request": {
