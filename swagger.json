@@ -28,7 +28,7 @@
             "in": "query"
         }
     },
-    "security": ["access_token"],
+    "security": ["access_token"],api/pvuv/resource/clicks
     "paths": {
         "/api/wifi/access/terminal": {
             "get": {
@@ -323,15 +323,13 @@
                     "type": "string",
                     "in": "query",
                     "description": "资源类型id",
-                    "required": true,
-                    "example": "home"
+                    "required": true
                 }, {
                     "name": "rid",
                     "type": "string",
                     "in": "query",
                     "description": "资源id",
-                    "required": false,
-                    "example": "home"
+                    "required": false
                 }, {
                     "name": "start_time",
                     "in": "query",
