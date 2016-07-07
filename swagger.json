@@ -28,7 +28,7 @@
             "in": "query"
         }
     },
-    "security": ["access_token"],api/pvuv/resource/clicks
+    "security": ["access_token"],
     "paths": {
         "/api/wifi/access/terminal": {
             "get": {
