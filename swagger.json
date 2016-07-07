@@ -3037,6 +3037,46 @@
             }
         }
     },
+        "/api2/tasks": {
+            "post": {
+                "summary": "创建任务",
+                "description": "创建设备重启任务",
+                "tags": [
+                    "Task"
+                ],
+                "parameters": [{
+                    "name": "verbose",
+                    "in": "query",
+                    "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
+                    "required": false,
+                    "type": "string",
+                    "format": "integer",
+                    "default": 100
+                },{
+                    "name": "taskinfo",
+                    "in": "body",
+                    "description": "任务信息。",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/TaskInfo"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "TaskInfo",
+                        "schema": {
+                            "$ref": "#/definitions/TaskInfoResult"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
     "definitions": {
         "Token": {
             "properties": {
