@@ -5024,6 +5024,54 @@
                 }
             }
         },
+        "TaskInfo": {
+            "properties": {
+                "userType": {
+                    "type": "integer",
+                    "description": "任务发起者类型。0：系统，1：用户，2：其他。",
+		    "example": 1
+                },
+                "name": {
+                    "type": "string",
+                    "description": "创建任务名称。",
+		    "example": "reboot confirmed"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "运行配置下发1、交互命令2。 ",
+		    "example": 2
+                },
+		"priority": {
+                    "type": "integer",
+                    "description": "任务优先等级，10：定时任务，20：低级，30：普通，40：高级。 ",
+		    "example": 40
+                },
+		"objectId": {
+                    "type": "string",
+                    "description": "设备ID。 ",
+		    "example": "57046ed644f454620fbcda98"
+                },
+		"objectName": {
+                    "type": "string",
+                    "description": "设备名。 ",
+		    "example": "71"
+                },
+		"siteId": {
+                    "type": "string",
+                    "description": "车辆ID。 ",
+		    "example": "57046ed644f454620fbcda99"
+                },
+		"siteName": {
+                    "type": "string",
+                    "description": "车辆名。 ",
+		    "example": "71"
+                },
+		"data": {
+                    "description": "任务信息。 ",
+		    "$ref": "#/definitions/TaskData"
+                }		
+            }
+        },
         "Error": {
             "properties": {
                 "request": {
