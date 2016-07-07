@@ -5072,6 +5072,84 @@
                 }		
             }
         },
+        "TaskInfoReponse": {
+            "properties": {
+                "userType": {
+                    "type": "integer",
+                    "description": "任务发起者类型。0：系统，1：用户，2：其他。",
+		    "example": 1
+                },
+                "name": {
+                    "type": "string",
+                    "description": "创建任务名称。",
+		    "example": "reboot confirmed"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "运行配置下发1、交互命令2。 ",
+		    "example": 2
+                },
+		"priority": {
+                    "type": "integer",
+                    "description": "任务优先等级，10：定时任务，20：低级，30：普通，40：高级。 ",
+		    "example": 40
+                },
+		"siteId": {
+                    "type": "string",
+                    "description": "车辆ID。 ",
+		    "example": "57046ed644f454620fbcda99"
+                },
+		"siteName": {
+                    "type": "string",
+                    "description": "车辆名。 ",
+		    "example": "71"
+                },
+		"data": {
+                    "description": "任务信息。 ",
+		    "$ref": "#/definitions/TaskData"
+                },
+		"objectId": {
+                    "type": "string",
+                    "description": "设备ID。 ",
+		    "example": "57046ed644f454620fbcda98"
+                },
+		"objectName": {
+                    "type": "string",
+                    "description": "设备名。 ",
+		    "example": "71"
+                },
+		"create": {
+                    "type": "integer",
+                    "description": "创建时间，linux时间戳。 ",
+		    "example": 1467857033
+                },
+		"progress": {
+                    "type": "number",
+                    "description": "任务进度百分比。 ",
+		    "example": 0.81
+                },
+		"state": {
+                    "type": "integer",
+                    "description": "任务状态，-1：失败，0：等待执行，1：正在执行，2：已取消，3：完成，4：暂停 5：等待发布 ",
+		    "example": 5
+                },
+		"username": {
+                    "type": "string",
+                    "description": "用户邮箱。 ",
+		    "example": "liwei@inhand.com.cn"
+                },
+		"oid": {
+                    "type": "string",
+                    "description": "机构ID。 ",
+		    "example": "556D494D6D7EB51182001439"
+                },
+		"_id": {
+                    "type": "string",
+                    "description": "返回任务ID。 ",
+		    "example": "577DB88951F9050008000083"
+                }				
+            }
+        },	
         "Error": {
             "properties": {
                 "request": {
