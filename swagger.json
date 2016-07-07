@@ -415,15 +415,13 @@
                     "type": "string",
                     "in": "query",
                     "description": "资源类型id",
-                    "required": true,
-                    "example": "home"
+                    "required": true
                 }, {
                     "name": "rid",
                     "type": "string",
                     "in": "query",
                     "description": "资源id",
-                    "required": false,
-                    "example": "home"
+                    "required": false
                 }, {
                     "name": "start_time",
                     "in": "query",
@@ -502,14 +500,12 @@
                     "type": "string",
                     "in": "query",
                     "description": "查询开始时间, UnixTime",
-                    "required": true,
-                    "example": "1234"
+                    "required": true
                 }, {
                     "name": "end_time",
                     "in": "query",
                     "description": "查询结束时间, UnixTime",
-                    "type": "string",
-                    "example": "2234"
+                    "type": "string"
                 }],
                 "responses": {
                     "200": {
@@ -599,8 +595,7 @@
                     "type": "string",
                     "in": "query",
                     "description": "资源类型id",
-                    "required": true,
-                    "example": "home"
+                    "required": true
                 }, {
                     "name": "sort",
                     "in": "query",
