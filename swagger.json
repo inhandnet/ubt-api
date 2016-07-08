@@ -3111,7 +3111,7 @@
                         }
                     }
                 }
-            }
+            },
             "delete": {
                 "summary": "取消任务",
                 "description": "取消指定任务",
