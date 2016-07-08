@@ -3068,6 +3068,50 @@
                     }
                 }
             }
+        },
+        "/api2/tasks/{ID}": {
+            "get": {
+                "summary": "获取任务信息",
+                "description": "获取指定任务信息",
+                "tags": [
+                    "Task"
+                ],
+                "parameters": [{
+                    "name": "ID",
+                    "in": "path",
+                    "description": "任务标识。",
+                    "required": true,
+                    "type": "string"
+                },{
+                    "name": "verbose",
+                    "in": "query",
+                    "description": "信息详细级别。该参数值越大表示要求提供的信息越详细，默认值为100，最小值为1最大值为100。",
+                    "required": false,
+                    "type": "string",
+                    "format": "integer",
+                    "default": 100
+                },{
+                    "name": "oid",
+                    "in": "query",
+                    "description": "机构标识。",
+                    "required": false,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "TaskInfo",
+                        "schema": {
+                            "$ref": "#/definitions/TaskInfoResult"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
