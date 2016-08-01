@@ -3471,17 +3471,17 @@
                 },
                "info": {
                     "properties": {
-                        "name": {
-                            "type": "string",
-                            "example": "name"
+                        "cid": {
+                            "type": "integer",
+                            "example": 1775
                         },
-                        "phone": {
+                        "deviceConfig": {
                             "type": "string",
-                            "example": 13312341234
+                            "example": "d-1461651760"
                         },
-                        "email": {
+                        "imsi": {
                             "type": "string",
-                            "example": "youremail@xx.com"
+                            "example": "460022012366794"
                         }
                     },
                     "type": "object",
