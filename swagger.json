@@ -3470,45 +3470,45 @@
                     "description": "联系人信息注：创建/更新时忽略请求中的该项参数"
                 },
                 "info": {
-                    "type": "object",
-                    "description": "基础信息",
                     "properties": {
                         "cid": {
                             "type": "integer",
                             "description": "移动基站",
-                            "default": 1775
+                            "example": 1775
                         },
                         "deviceConfig": {
                             "type": "string",
                             "description": "设备版本号",
-                            "default": "d-1461651760"
+                            "example": "d-1461651760"
                         },
                         "imsi": {
                             "type": "string",
                             "description": "国际移动用户识别码",
-                            "default": "460022012366794"
+                            "example": "460022012366794"
                         },
                         "lac": {
                             "type": "integer",
                             "description": "位置区码",
-                            "default": 65534
+                            "example": 65534
                         },
                         "mcc": {
                             "type": "integer",
                             "description": "移动设备国家代码，460中国",
-                            "default": 460
+                            "example": 460
                         },
                         "mnc": {
                             "type": "integer",
                             "description": "移动设备网络代码",
-                            "default": 00
+                            "example": 00
                         },
                         "rssi": {
                             "type": "integer",
                             "description": "信号值",
-                            "default": 20
+                            "example": 20
                         }
-                    }
+                    },
+                     "type": "object",
+                     "description": "基础信息"
                 },
                 "modelId": {
                     "type": "string",
