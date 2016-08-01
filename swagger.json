@@ -3497,9 +3497,9 @@
                             "example": 460
                         },
                         "mnc": {
-                            "type": "number",
+                            "type": "string",
                             "description": "移动设备网络代码，00中国移动、01中国联通、11中国电信",
-                            "example": 00
+                            "example": "00"
                         },
                         "rssi": {
                             "type": "integer",
