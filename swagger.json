@@ -3493,7 +3493,7 @@
                         },
                         "mnc": {
                             "type": "integer",
-                            "example": 00
+                            "example": 1
                         },
                         "rssi": {
                             "type": "integer",
