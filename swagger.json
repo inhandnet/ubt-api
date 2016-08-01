@@ -3474,7 +3474,7 @@
                     "description": "基础信息",
                     "properties": {
                         "cid": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "移动基站",
                             "default": 1775
                         },
@@ -3489,22 +3489,22 @@
                             "default": "460022012366794"
                         },
                         "lac": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "位置区码",
                             "default": 65534
                         },
                         "mcc": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "移动设备国家代码，460中国",
                             "default": 460
                         },
                         "mnc": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "移动设备网络代码",
                             "default": 00
                         },
                         "rssi": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "信号值",
                             "default": 20
                         }
