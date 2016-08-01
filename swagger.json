@@ -3482,6 +3482,22 @@
                         "imsi": {
                             "type": "string",
                             "example": "460022012366794"
+                        },
+                        "lac": {
+                            "type": "integer",
+                            "example": 65534
+                        },
+                        "mcc": {
+                            "type": "integer",
+                            "example": 460
+                        },
+                        "mnc": {
+                            "type": "integer",
+                            "example": 00
+                        },
+                        "rssi": {
+                            "type": "integer",
+                            "example": 20
                         }
                     },
                     "type": "object",
