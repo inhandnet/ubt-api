@@ -3473,30 +3473,37 @@
                     "properties": {
                         "cid": {
                             "type": "integer",
+                            "description": "移动基站",
                             "example": 1775
                         },
                         "deviceConfig": {
                             "type": "string",
+                            "description": "设备版本号",
                             "example": "d-1461651760"
                         },
                         "imsi": {
                             "type": "string",
+                            "description": "国际移动用户识别码",
                             "example": "460022012366794"
                         },
                         "lac": {
                             "type": "integer",
+                            "description": "位置区码",
                             "example": 65534
                         },
                         "mcc": {
                             "type": "integer",
+                            "description": "移动设备国家代码，460中国",
                             "example": 460
                         },
                         "mnc": {
-                            "type": "integer",
-                            "example": 1
+                            "type": "number",
+                            "description": "移动设备网络代码，00中国移动、01中国联通、11中国电信",
+                            "example": 00
                         },
                         "rssi": {
                             "type": "integer",
+                            "description": "信号值",
                             "example": 20
                         }
                     },
